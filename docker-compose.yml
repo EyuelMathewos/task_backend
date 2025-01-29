@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  cockroachdb:
+    image: cockroachdb/cockroach:v22.2.11
+    container_name: cockroachdb
+    command: start-single-node --insecure
+    environment:
+      - COCKROACH_USER=root
+      - COCKROACH_PASSWORD=root
+    ports:
+      - '26257:26257'
+      - '8082:8080'
+    volumes:
+      - cockroach-data:/cockroach/cockroach-data
+volumes:
+  cockroach-data:

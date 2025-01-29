@@ -1,0 +1,45 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateTaskInput {
+  description: String!
+  status: String!
+  title: String!
+}
+
+type Mutation {
+  createTask(createTask: CreateTaskInput!): Task!
+  deleteTask(taskId: String!): Boolean!
+  updateTask(taskId: String, updateTask: UpdateTaskInput!): Task!
+}
+
+type Query {
+  tasksWithMeta(limit: String, page: String, status: String): TasksWithMeta!
+}
+
+type Subscription {
+  taskCreated: Task!
+  taskDeleted: Task!
+  taskUpdated: Task!
+}
+
+type Task {
+  description: String!
+  id: String!
+  status: String!
+  title: String!
+}
+
+type TasksWithMeta {
+  currentPage: Int!
+  tasks: [Task!]!
+  totalItems: Int!
+  totalPages: Int!
+}
+
+input UpdateTaskInput {
+  description: String!
+  status: String!
+  title: String!
+}
